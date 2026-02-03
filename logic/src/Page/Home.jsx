@@ -1,5 +1,5 @@
 import React from 'react'
-import { File, CircleCheck, Github, Coffee } from 'lucide-react' // Fixed import names
+import { File, CircleCheck, Github, Coffee,XCircleIcon } from 'lucide-react' // Fixed import names
 import { useState, useRef, useEffect } from 'react'
 import toast from 'react-hot-toast'
 import JSZip from 'jszip'
@@ -130,6 +130,10 @@ const Home = () => {
         }
     }
 
+    const [help,setHelp] = useState(false)
+
+   
+
     return (
         <div className='min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex justify-center items-center p-4'>
             <div className='bg-white h-auto max-h-[90vh] w-full max-w-[500px] rounded-2xl p-5 shadow-2xl overflow-y-auto'>
@@ -156,6 +160,53 @@ const Home = () => {
                             no uploads • no tracking • no ads
                         </p>
                     </div>
+                    
+
+                    <div>
+                        <div className='p-2' >
+                            <h1 onClick={(e)=>setHelp(true)} className='hover:scale-110 hover:text-black w-[200px] cursor-pointer text-[1.5rem] font-bold text-gray-500'>
+                                How it works??
+                            </h1>
+                            {
+                                !help ? (<></>) : (
+                                    <div className='p-2 bg-white shadow-lg rounded-lg'>
+                                        <div className='w-full flex justify-end items-end p-3'>
+                                            <XCircleIcon className='cursor-pointer' onClick={(e)=>setHelp(false)} />
+                                        </div>
+                                        <ol className='grid gap-3'  >
+                                            <li className='hover:scale-[1.02]'>
+                                                  <h1 className='font-bold'>
+                                                    Select your CBZ file
+                                                  </h1>
+                                                  Click the upload area and choose your comic book file (.cbz).
+                                            </li>
+                                            <li className='hover:scale-[1.02]'>
+                                                <h1 className='font-bold'>
+                                                    Convert instantly
+                                                </h1>
+                                                Hit “Convert to PDF” and the app turns each page into a PDF — right in your browser.
+                                            </li>
+                                            <li className='hover:scale-[1.02]'>                                  
+                                                <h1 className='font-bold'> 
+                                                    Download your PDF
+                                                </h1>
+                                                Your PDF is ready in seconds. No uploads, no waiting, no server involved.
+                                            </li>
+                                            <li className='hover:scale-[1.02]'>
+                                                <h1 className='font-bold'>
+                                                    NB: Downloads Start Automnatically
+                                                </h1>
+                                            </li>
+                                        </ol>
+                                        <p className='mt-[20px]'>
+                                            ✨ Your files stay private and never leave your device.
+                                        </p>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+
 
                     <div className='p-4 bg-gray-50 rounded-xl shadow-inner'>
                         <div className='w-full'>
